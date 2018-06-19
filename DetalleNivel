@@ -15,48 +15,6 @@
             HorizontalOptions="FillAndExpand"
             Orientation="Vertical"  
             VerticalOptions="FillAndExpand">
-            <!--Navigation Bar-->
-            <StackLayout
-                Margin="10,4,10,-5"
-                Padding="0">
-                <Grid
-                    HeightRequest="50"
-                    VerticalOptions="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="0.2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image 
-                        Grid.Column="0"
-                        HorizontalOptions="Start"
-                        Margin="5,0"
-                        Source="ic_dehaze">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding MenuCommand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Label
-                        FontSize="Small"
-                        Grid.Column="1"
-                        HorizontalOptions="CenterAndExpand"
-                        Margin="0,0,0,0"
-                        Text="DETALLE ALUMNO"
-                        TextColor="Black"
-                        VerticalOptions="Center"/>
-                    <Image 
-                        Grid.Column="2"
-                        HorizontalOptions="End"
-                        Margin="5,0"
-                        Source="ic_settings">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding MenuContextualCommand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                </Grid>
-            </StackLayout>
             <!--Contenedor de todas la pagina, menos la barra de navegacion-->
             <ScrollView
                 HeightRequest="600">
@@ -64,60 +22,6 @@
                     HorizontalOptions="FillAndExpand"
                     Orientation="Vertical"  
                     VerticalOptions="FillAndExpand">
-                    <!--Header-->
-                    <StackLayout
-                        BackgroundColor="#98ccf2"
-                        HeightRequest="200"
-                        Margin="0"
-                        Padding="0">
-                        <Grid
-                            VerticalOptions="Center">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <StackLayout
-                                Grid.Row="0">
-                                <Image
-                                    HorizontalOptions="Start"
-                                    Margin="5,0"
-                                    Source="chevron_left">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer
-                                            Command="{Binding BackCommand}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </StackLayout>
-                            <StackLayout
-                                Grid.Row="1"
-                                HorizontalOptions="Center"
-                                Orientation="Vertical">
-                                <controls:CircleImage
-                                    Aspect="AspectFill"
-                                    BorderColor="#98ccf2"
-                                    BorderThickness="1"
-                                    HeightRequest="140"
-                                    HorizontalOptions="CenterAndExpand"
-                                    Margin="0,-25,0,0"
-                                    Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR75h1BLqvnsPUPcsRJWETP5ZqwYlIhKHc8ZLwKxZ5xKhNTh1Vr"
-                                    WidthRequest="140"/>
-                            </StackLayout>
-                            <Label
-                                FontAttributes="Bold"
-                                FontSize="Small"
-                                Grid.Row="2"
-                                HorizontalOptions="Center"
-                                Margin="10"
-                                Text="Dark Vader"
-                                TextColor="White"
-                                VerticalOptions="End"/>
-                        </Grid>
-                    </StackLayout>
-                    <!--<StackLayout>-->
                         <!--Inicio del CustomControlTabs Control para las Tabs-->
                         <TabCtrls:CustomTabs 
                             HorizontalOptions="FillAndExpand" 
@@ -147,14 +51,6 @@
                                     TextColor="Black"
                                     WidthRequest = "85" 
                                     x:Name="WeeksTabButton" />
-                                <!--<TabCtrls:CustomTabButton 
-                                    BorderRadius = "20" 
-                                    FontSize="Small" 
-                                    HeightRequest="45"  
-                                    Text="Days"  
-                                    TextColor="Black"
-                                    WidthRequest = "85" 
-                                    x:Name="DaysTabButton" />-->
                             </TabCtrls:CustomTabButtons>
                             <!--Paginas dentro de los tabs-->
                             <TabCtrls:CustomTab 
@@ -268,89 +164,7 @@
                                         </chart:SfChart.Series>
                                     </chart:SfChart>
                             </TabCtrls:CustomTab>
-
-                            <!--<TabCtrls:CustomTab 
-                                BackgroundColor="Aqua"
-                                HorizontalOptions="FillAndExpand"  
-                                IsVisible="False" 
-                                VerticalOptions="FillAndExpand"  
-                                x:Name="DaysTab" >
-                                <StackLayout>
-                                    <chart:SfChart
-                                        HorizontalOptions="FillAndExpand"
-                                        SelectionChanging="SfChart_SelectionChanging"
-                                        VerticalOptions="FillAndExpand">
-
-                                        <chart:SfChart.BindingContext>
-                                            <viewModels:PersonViewModel/>
-                                        </chart:SfChart.BindingContext>
-
-                                        <chart:SfChart.Title>
-
-                                            <chart:ChartTitle 
-                                                Text="Chart"/>
-
-                                        </chart:SfChart.Title>
-
-                                        <chart:SfChart.Legend>
-
-                                            <chart:ChartLegend/>
-
-                                        </chart:SfChart.Legend>
-
-                                        <chart:SfChart.PrimaryAxis>
-
-                                            <chart:CategoryAxis>
-                                                <chart:CategoryAxis.Title>
-
-                                                    <chart:ChartAxisTitle Text="Name"></chart:ChartAxisTitle>
-
-                                                </chart:CategoryAxis.Title>
-                                            </chart:CategoryAxis>
-
-                                        </chart:SfChart.PrimaryAxis>
-
-                                        <chart:SfChart.SecondaryAxis>
-
-                                            <chart:NumericalAxis>
-                                                <chart:NumericalAxis.Title>
-
-                                                    <chart:ChartAxisTitle Text="Height (in cm)"></chart:ChartAxisTitle>
-
-                                                </chart:NumericalAxis.Title>
-                                            </chart:NumericalAxis>
-
-                                        </chart:SfChart.SecondaryAxis>
-
-                                        <chart:SfChart.Series>
-                                            <chart:ColumnSeries 
-                                                Color="#c6c6bc"
-                                                EnableDataPointSelection="True"
-                                                EnableTooltip ="True"
-                                                ItemsSource="{Binding Data}" 
-                                                Label="Heights"
-                                                SelectedDataPointColor="Blue"
-                                                SelectedDataPointIndex="2"
-                                                XBindingPath="Name" 
-                                                YBindingPath="Height" >
-
-                                            </chart:ColumnSeries>
-
-                                            <chart:SplineSeries 
-                                                Color="Black"
-                                                EnableDataPointSelection="True"
-                                                EnableTooltip ="True"
-                                                ItemsSource ="{Binding Data2}"
-                                                SplineType="Monotonic"
-                                                XBindingPath="Name" 
-                                                YBindingPath="Height"/>
-
-                                        </chart:SfChart.Series>
-                                    </chart:SfChart>
-                                </StackLayout>
-                        </TabCtrls:CustomTab> -->
                     </TabCtrls:CustomTabs>
-                    <!--</StackLayout>-->
                     <StackLayout>
                     <TabCtrls:CustomTabs 
                             HorizontalOptions="FillAndExpand" 
